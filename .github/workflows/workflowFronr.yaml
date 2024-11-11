@@ -1,0 +1,31 @@
+name: CI Test Pipeline
+
+# Dispara o pipeline em pushes e pull requests para a branch principal
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout do repositório
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Configura o Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # Versão Node.js compatível com seu projeto
+
+    # Instala as dependências do projeto
+    - name: Install dependencies
+      run: npm install
+
+    # Executa os testes
+    - name: Run tests
+      run: npm test
