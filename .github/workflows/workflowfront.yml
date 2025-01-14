@@ -1,0 +1,42 @@
+name: CI Test Pipeline
+
+# Dispara o pipeline em pushes e pull requests para a branch principal
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout do repositório
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Configura o Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # versão do node no projeto
+
+    # Instala as dependências do projeto
+    - name: Install dependencies
+      run: yarn install
+
+    # Executa os testes unitários
+    - name: Run unit tests
+      run: yarn run test
+
+    # Executa os testes e2e
+    - name: Run e2e tests
+      run: yarn run test:e2e
+
+    # Gera o relatório de cobertura de testes
+    - name: Test coverage
+    - run: yarn run test --passWithNoTests
+      #
+      #run: yarn run test -- corrigir 
+
