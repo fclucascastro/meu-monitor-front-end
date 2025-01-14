@@ -20,12 +20,23 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18'  # Versão Node.js compatível com seu projeto
+        node-version: '18'  # versão do node no projeto
 
     # Instala as dependências do projeto
     - name: Install dependencies
-      run: npm install
+      run: yarn install
 
-    # Executa os testes
-    - name: Run tests
-      run: npm test
+    # Executa os testes unitários
+    - name: Run unit tests
+      run: yarn run test
+
+    # Executa os testes e2e
+    - name: Run e2e tests
+      run: yarn run test:e2e
+
+    # Gera o relatório de cobertura de testes
+    - name: Test coverage
+    - run: yarn run test --passWithNoTests
+      #não corrigir test.
+      #run: yarn run test:cov
+

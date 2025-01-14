@@ -58,10 +58,15 @@ const Header = () => {
         </Button>
         <Avatar className="size-16">
           <AvatarImage
-            src="https://github.com/sammyferreiraa.png"
-            alt="@sammyferreiraa"
+
+           //src="https://github.com/sammyferreiraa.png"
+            //alt="@sammyferreiraa"
+            //alterando a imagem do adm
+            src="https://github.com/fclucascastro.png"
+            alt="@fclucascastro"
+            //https://github.com/fclucascastro
           />
-          <AvatarFallback>SF</AvatarFallback>
+          <AvatarFallback>LC</AvatarFallback>
         </Avatar>
       </div>
       {isFilterVisible && <HeaderFilter onClose={toggleFilter} />}

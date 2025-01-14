@@ -13,6 +13,7 @@ const TableItem: React.FC<ScheduleItem> = ({ Nome, Hora, Local, Andar }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [selectedDays, setSelectedDays] = useState<string[]>([
+    //dias aos quais tem essa monitoria
     "Segunda",
     "Terça",
     "Quarta",
