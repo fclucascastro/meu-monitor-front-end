@@ -37,6 +37,6 @@ jobs:
     # Gera o relatório de cobertura de testes
     - name: Test coverage
     - run: yarn run test --passWithNoTests
-      #não corrigir test.
-      #run: yarn run test:cov
+      #
+      #run: yarn run test -- corrigir 
 
